@@ -244,7 +244,6 @@ function initMap() {
             }
         ]
     })
-    UiSettings.setCompassEnabled(true);
     infoWindow = new google.maps.InfoWindow;
 
         // Try HTML5 geolocation.
