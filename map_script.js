@@ -1,3 +1,4 @@
+var map;
 function initMap() {
     var uluru = {lat: 41.8239, lng: -71.4128};
     map = new google.maps.Map(document.getElementById('map'), {
@@ -247,10 +248,6 @@ function initMap() {
             }
         ]
     })
-    var poly = new google.maps.Polyline({
-        map: map,
-        path: []
-    })
     infoWindow = new google.maps.InfoWindow;
     var pos = {
         lat: 41.8261471,
@@ -267,13 +264,8 @@ function initMap() {
             };
 
             infoWindow.setPosition(pos);
-            infoWindow.setContent('new location');
+            infoWindow.setContent('You are here!');
             infoWindow.open(map);
-            var path = poly.getPath();
-            // add new point (use the position from the click event)
-            path.push(new google.maps.LatLng(pos.lat, pos.lgn));
-            // update the polyline with the updated path
-            poly.setPath(path);
         }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
         });
@@ -291,10 +283,6 @@ function initMap() {
         infoWindow.open(map);
     }
 
-    //    var poly = new google.maps.Polyline({
-    //        map: map,
-    //        path: []
-    //    })
     google.maps.event.addListener(map, 'click', function(evt) {
         // get existing path
         var adddedMarkerPos = {lat:evt.latLng.lat(), lng:evt.latLng.lng()};
@@ -304,28 +292,4 @@ function initMap() {
         });
     })
 }
-
-var id, target, options;
-
-function success(pos) {
-    var crd = pos.coords;
-    console.log(crd);
-}
-
-function error(err) {
-    console.warn('ERROR(' + err.code + '): ' + err.message);
-}
-
-target = {
-    latitude : 0,
-    longitude: 0
-};
-
-options = {
-    enableHighAccuracy: false,
-    //timeout: 5000,
-    maximumAge: 0
-};
-
-id = navigator.geolocation.watchPosition(success, error, options);
 
