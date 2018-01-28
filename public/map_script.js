@@ -8,7 +8,7 @@ var data = {
     words: ["Mountain"]
 }
 window.sharedSpace = [];
-
+markers = []
 
 function autoScroll() {
     window.clearTimeout( isScrolling );
@@ -155,6 +155,7 @@ function drawPoints(){
                 position: addMyLoc,
                 map: map,
                 icon: blueMarker,
+                id:x,
             });
             marker.addListener('click', function() {
                         // var weirdWords = words.toString();
@@ -163,7 +164,8 @@ function drawPoints(){
                         // }
 
                         infowindow = new google.maps.InfoWindow({
-                            content: words.toString()
+                            console.log(marker.id)
+                            content: msg[marker.id].words.toString()
                         });
                 infowindow.open(map, marker);
             })
