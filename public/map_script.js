@@ -110,9 +110,6 @@ function CenterControl(controlDiv, map) {
             infowindow.open(map, marker);
         })
     });
-
-    drawPoints();
-
 }
 
 
