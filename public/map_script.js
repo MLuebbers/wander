@@ -145,8 +145,8 @@ function drawPoints(){
             var lat = msg[x].latitude;
             var lon = msg[x].longitude;
             var words = msg[x].words;
-            console.log(lat);
-            console.log(lon);
+            // console.log(lat);
+            // console.log(lon);
             var addMyLoc = {lat: lat, lng: lon};
             var marker = new google.maps.Marker({
                 position: addMyLoc,
@@ -164,8 +164,9 @@ function drawPoints(){
 
                         infowindow = new google.maps.InfoWindow({
                             content: weirdWords
-                }
+                })
                 infowindow.open(map, marker);
+
             })
         }
 
