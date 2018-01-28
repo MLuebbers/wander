@@ -163,7 +163,7 @@ server.route({
         var free = request.query.free
 
         reply('Hello2, '
-        + request.query.longitude
+        + lon
         + "," + lat
         + "," + words
         + "," + free + '!');
@@ -174,6 +174,14 @@ server.route({
             throw err; 
         } 
             console.log("1 record inserted");
+        });
+
+        if (err) throw err;
+          connection.query("SELECT * FROM points", function (err, result, fields) {
+            if (err){
+              throw err;  
+            } 
+            console.log(result);
         });
     }
 });
