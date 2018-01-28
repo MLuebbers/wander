@@ -30,10 +30,8 @@ function scrollToAbout(){
 
 
 var map;
-var wanderPath;
-
 var infoWindow;
-
+var selfMarker;
 
 var chicago = {lat: 41.85, lng: -87.65};
 
@@ -44,22 +42,6 @@ var chicago = {lat: 41.85, lng: -87.65};
        * @constructor
        */
 function CenterControl(controlDiv, map) {
-    var image = {
-        url: 'http://www.clker.com/cliparts/P/1/h/u/d/k/upright-white-triangle-hi.png', // image is 512 x 512
-        scaledSize : new google.maps.Size(34, 30),
-    };
-    
-    var pos = {
-        lat: 41.8251471,
-        lng: -71.4028689
-    };
-
-    var selfMarker = new google.maps.Marker({
-            position: pos,
-            icon:image,
-            map: map,
-            //zIndex: 99999,
-        });
 
     // Set CSS for the control border.
     var controlUI = document.createElement('div');
@@ -91,13 +73,14 @@ function CenterControl(controlDiv, map) {
     };
     // Setup the click event listeners: simply set the map to Chicago.
     controlUI.addEventListener('click', function() {
-        if (!infobox) {
+        if (!window.infobox) {
             $('.popup').css( "left", "20px" );
-            infobox = true;
+            window.infobox = true;
         }else{
-            $('.popup').css( "left", "-380px" );
-            infobox = false;
+            $('.popup').css( "left", "-380px" ); 
+            window.infobox = false;
         }
+
         var addMyLoc = {lat:selfMarker.getPosition().lat(), lng:selfMarker.getPosition().lng()};
         window.lastAdded_lat = selfMarker.getPosition().lat();
         data.lat = selfMarker.getPosition().lat();
@@ -108,6 +91,7 @@ function CenterControl(controlDiv, map) {
             map: map,
             icon: blueMarker,
         });
+        
         marker.addListener('click', function() {
             for (i =0; i < window.sharedSpace.length; i++) {
                 if(window.sharedSpace[i].lat==marker.getPosition().lat()) {
@@ -117,7 +101,7 @@ function CenterControl(controlDiv, map) {
                     for (j=0; j< data.length; j++) {
                         weirdWords += " " + data[j];
                     }
-
+                    
                     infowindow = new google.maps.InfoWindow({
                         content: weirdWords
                     });
@@ -131,16 +115,16 @@ function CenterControl(controlDiv, map) {
 
 
 
+
+
 function initMap() {
     var uluru = {lat: 41.8239, lng: -71.4128};
-
     map = new google.maps.Map(document.getElementById('map'), {
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         zoom: 17,
         center: {lat: 41.8261471, lng: -71.4028689},
         disableDefaultUI: true,
-        gestureHandling: 'cooperative',
-
+        gestureHandling: 'cooperative', 
         styles: [
             {
                 "elementType": "geometry",
@@ -390,22 +374,6 @@ function initMap() {
         lat: 41.8251471,
         lng: -71.4028689
     };
-
-
-    wanderPath = new google.maps.Polyline({
-
-        geodesic: false,
-        strokeColor: '#FF0000',
-        strokeOpacity: 1.0,
-        strokeWeight: 2
-    });
-
-    wanderPath.setMap(map);
-
-    infoWindow.setPosition(pos);
-    infoWindow.setContent('You are here!');
-    infoWindow.open(map);
-
     var image = {
         url: 'http://www.clker.com/cliparts/P/1/h/u/d/k/upright-white-triangle-hi.png', // image is 512 x 512
         scaledSize : new google.maps.Size(34, 30),
@@ -416,16 +384,12 @@ function initMap() {
         map: map,
         //zIndex: 99999,
     });
-
-
-
     if (navigator.geolocation) {
         navigator.geolocation.watchPosition(function(position) {
             pos = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
-            addLatLng(pos.lat, pos.lng);
 
             selfMarker.setPosition(pos);
         }, function() {
@@ -472,7 +436,7 @@ function initMap() {
         scaledSize : new google.maps.Size(32, 32),
     };
     google.maps.event.addListener(map, 'click', function(evt) {
-
+        // get existing path
         var adddedMarkerPos = {lat:evt.latLng.lat(), lng:evt.latLng.lng()};
         var marker = new google.maps.Marker({
             position: adddedMarkerPos,
@@ -490,18 +454,6 @@ function initMap() {
             infowindow.open(map, marker);
         })
     })
-
-
-
-    //map.addListener('click', addLatLng);
-
 }
 
 
-function addLatLng(y, x) {
-        var path = wanderPath.getPath();
-        path.push(new google.maps.LatLng(y, x));
-        if(path.getLength() > 5){
-            path.removeAt(0);
-        }
-}
