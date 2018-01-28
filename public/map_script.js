@@ -158,7 +158,7 @@ function drawPoints(){
                 id:x,
                 words: words,
             });
-            markers.push(marker);
+            markers[x] = marker;
             markers[x].addListener('click', function() {
                         // var weirdWords = words.toString();
                         // for (j=0; j< data.length; j++) {
