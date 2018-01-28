@@ -8,6 +8,7 @@ const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'password'
+    database: 'wander'
 });
 
 connection.connect(function(err) {
