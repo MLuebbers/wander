@@ -18,12 +18,12 @@ connection.connect(function(err) {
 
     console.log('connected as id ' + connection.threadId);
 
-    connection.query("CREATE DATABASE points", function (err, result) {
-        if (err) {
-            throw err;
-        }
-        console.log("Database created");
-    });
+    // connection.query("CREATE DATABASE points", function (err, result) {
+    //     if (err) {
+    //         throw err;
+    //     }
+    //     console.log("Database created");
+    // });
 });
 
 server.register(require('inert'), (err) => {
