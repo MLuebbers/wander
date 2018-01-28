@@ -25,7 +25,6 @@ connection.connect(function(err) {
     //     console.log("Database created");
     // });
 });
-
 server.register(require('inert'), (err) => {
 
     if (err) {
@@ -88,8 +87,6 @@ server.register(require('inert'), (err) => {
             reply.file('./public/script.js');
         }
     });
-
-
 });
 
 server.route({
@@ -101,13 +98,13 @@ server.route({
     });
 
 
-server.route({
-        method: 'GET',
-        path: '/index',
-        handler: function (request, reply) {
-            reply.file('./public/.html');
-        }
-    });
+// server.route({
+//         method: 'GET',
+//         path: '/index',
+//         handler: function (request, reply) {
+//             reply.file('./public/.html');
+//         }
+//     });
 
 server.start((err) => {
     if(err){
