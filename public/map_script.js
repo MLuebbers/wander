@@ -1,7 +1,13 @@
 var isScrolling;
-var infobox = false;
-var data = [];
-
+window.infobox = false;
+window.lastAdded_lat = 41.8261471;
+var data = {
+    lat: 0,
+    lng: 0,
+    free: false,
+    words: ["Mountain"]
+}
+window.sharedSpace = [];
 
 
 function autoScroll() {
@@ -16,7 +22,6 @@ function autoScroll() {
 }
 function scrollToAdd(){
     document.getElementById("add-info").scrollIntoView({behavior: "smooth"});
-    console.log('scroll to add');
 }
 function scrollToAbout(){
     document.getElementById("map").scrollIntoView({behavior: "smooth"});
@@ -78,12 +83,30 @@ function CenterControl(controlDiv, map) {
             infobox = false;
         }
         var addMyLoc = {lat:selfMarker.getPosition().lat(), lng:selfMarker.getPosition().lng()};
+        window.lastAdded_lat = selfMarker.getPosition().lat();
+        data.lat = selfMarker.getPosition().lat();
+        data.lng = selfMarker.getPosition().lng();
+        window.sharedSpace.push(data);
         var marker = new google.maps.Marker({
             position: addMyLoc,
             map: map,
             icon: blueMarker,
         });
         marker.addListener('click', function() {
+            for (i =0; i < window.sharedSpace.length; i++) {
+                if(window.sharedSpace[i].lat==marker.getPosition().lat()) {
+                    var weirdWords = "";
+                    data = window.sharedSpace[i].words;
+                    console.log(marker.getPosition());
+                    for (j=0; j< data.length; j++) {
+                        weirdWords += " " + data[j];
+                    }
+
+                    infowindow = new google.maps.InfoWindow({
+                        content: weirdWords
+                    });
+                }
+            }
             infowindow.open(map, marker);
         })
     });
@@ -99,9 +122,6 @@ function initMap() {
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         zoom: 17,
         center: {lat: 41.8261471, lng: -71.4028689},
-        streetViewControl: false,
-        mapTypeControl: false,
-        gestureHandling: 'greedy',
         disableDefaultUI: true,
         gestureHandling: 'cooperative',
 
@@ -442,6 +462,13 @@ function initMap() {
             icon: blueMarker,
         });
         marker.addListener('click', function() {
+
+            for (i =0; i < window.sharedSpace.length; i++) {
+                if(window.sharedSpace[i].lat==marker.getPosition().lat()) {
+                    data = window.sharedSpace[i];
+                }
+            }
+            console.log(data);
             infowindow.open(map, marker);
         })
     })
