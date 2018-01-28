@@ -8,7 +8,7 @@ var data = {
     words: ["Mountain"]
 }
 window.sharedSpace = [];
-var markers = []
+var markers = [];
 
 function autoScroll() {
     window.clearTimeout( isScrolling );
@@ -159,6 +159,7 @@ function drawPoints(){
                 words: words,
             });
             markers[x] = marker;
+            console.log(markers);
             markers[x].addListener('click', function() {
                         // var weirdWords = words.toString();
                         // for (j=0; j< data.length; j++) {
