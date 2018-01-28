@@ -18,12 +18,20 @@ connection.connect(function(err) {
 
     console.log('connected as id ' + connection.threadId);
 
-    // connection.query("CREATE DATABASE points", function (err, result) {
+    // connection.query("CREATE DATABASE wander", function (err, result) {
     //     if (err) {
     //         throw err;
     //     }
     //     console.log("Database created");
     // });
+
+    var sql = "CREATE TABLE points (longitude FLOAT, latitude FLOAT, words VARCHAR(140), free BOOLEAN)";
+    con.query(sql, function (err, result) {
+        if (err) {
+            throw err;
+        }
+        console.log("Table created");
+    });
 });
 
 server.register(require('inert'), (err) => {
@@ -150,5 +158,13 @@ server.route({
         + "," + request.query.latitude
         + "," + request.query.words
         + "," + request.query.free + '!');
+
+        var sql = "INSERT INTO points (longitude, latitude, words, free) VALUES (request.query.longitude, request.query.latitude, request.query.words, request.query.free)";
+        con.query(sql, function (err, result) {
+        if (err) {
+            throw err; 
+        } 
+            console.log("1 record inserted");
+        });
     }
 });
