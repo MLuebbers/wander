@@ -153,21 +153,6 @@ function drawPoints(){
                 map: map,
                 icon: blueMarker,
             });
-
-            marker.addListener('click', function() {
-                        var weirdWords = "";
-                        data = words;
-                        console.log(marker.getPosition());
-                        for (j=0; j< data.length; j++) {
-                            weirdWords += " " + data[j];
-                        }
-
-                        infowindow = new google.maps.InfoWindow({
-                            content: weirdWords
-                })
-                infowindow.open(map, marker);
-
-            })
         }
 
         console.log("done");
