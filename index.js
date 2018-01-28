@@ -12,12 +12,22 @@ server.register(require('inert'), (err) => {
 
     server.route({
         method: 'GET',
-        path: '/home',
-        handler: function (request, reply) {
-            // reply('Hello, world!');
-            reply.file('./public/index.html');
+        path: '/{param*}',
+        handler: {
+            directory: {
+                path: './public'
+            }
         }
     });
+
+    // server.route({
+    //     method: 'GET',
+    //     path: '/home',
+    //     handler: function (request, reply) {
+    //         // reply('Hello, world!');
+    //         reply.file('./public/index.html');
+    //     }
+    // });
 
     server.route({
         method: 'GET',
