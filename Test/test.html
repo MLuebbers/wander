@@ -5,13 +5,19 @@
 	<script type='text/javascript' src="jquery-3.3.1.min.js"></script>
         <script>
         	$(function(arr) {
-				$.ajax({
+				var request = $.ajax({
 					type: "GET",
 					url: "165.227.67.10:3000",
 					data: {name: "Jenna"}
-				}).done(function(msg) {
+				})
+
+				request.done(function(msg) {
 					alert("Data Saved: " + msg)
 					console.log("yay")
+				})
+
+				request.fail(function(jqXHR, textStatus) {
+					alert("Request failed: " + textStatus)
 				})
 			});
 
