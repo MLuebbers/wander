@@ -10,24 +10,24 @@ server.register(require('inert'), (err) => {
         throw err;
     }
 
-    server.route({
-        method: 'GET',
-        path: '/{param*}',
-        handler: {
-            directory: {
-                path: './public'
-            }
-        }
-    });
-
     // server.route({
     //     method: 'GET',
-    //     path: '/home',
-    //     handler: function (request, reply) {
-    //         // reply('Hello, world!');
-    //         reply.file('./public/index.html');
+    //     path: '/{param*}',
+    //     handler: {
+    //         directory: {
+    //             path: './public'
+    //         }
     //     }
     // });
+
+    server.route({
+        method: 'GET',
+        path: '/home',
+        handler: function (request, reply) {
+            // reply('Hello, world!');
+            reply.file('./public/index.html');
+        }
+    });
 
     server.route({
         method: 'GET',
@@ -36,6 +36,32 @@ server.register(require('inert'), (err) => {
             reply.file('./public/JS/libs/jquery-3.2.1.min.js');
         }
     });
+
+    server.route({
+        method: 'GET',
+        path: '/main.css',
+        handler: function (request, reply) {
+            reply.file('./public/main.css');
+        }
+    });
+
+    server.route({
+        method: 'GET',
+        path: '/map_script.js',
+        handler: function (request, reply) {
+            reply.file('./public/map_script.js');
+        }
+    });
+
+    server.route({
+        method: 'GET',
+        path: '/script.js',
+        handler: function (request, reply) {
+            reply.file('./public/script.js');
+        }
+    });
+
+
 });
 
 server.route({
