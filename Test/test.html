@@ -4,39 +4,39 @@
 
 	<script type='text/javascript' src="jquery-3.3.1.min.js"></script>
         <script>
-        	$(function(arr) {
-				var request = $.ajax({
-					type: "GET",
-					url: "http://165.227.67.10:3000",
-					data: {name: "Jenna"}
-				})
-
-				request.done(function(msg) {
-					alert("Data Saved: " + msg)
-					console.log("yay")
-				})
-
-				request.fail(function(jqXHR, textStatus) {
-					alert("Request failed: " + textStatus)
-				})
-			});
-
-			// $(function(arr) {
+   //      	$(function(arr) {
 			// 	var request = $.ajax({
-			// 		type: "POST",
+			// 		type: "GET",
 			// 		url: "http://165.227.67.10:3000",
-			// 		data: {longitude: "100", latitude: "200", words: "mystery", free: "true"}
-			// 	});
+			// 		data: {name: "Jenna"}
+			// 	})
 
 			// 	request.done(function(msg) {
 			// 		alert("Data Saved: " + msg)
+			// 		console.log("yay")
 			// 	})
 
 			// 	request.fail(function(jqXHR, textStatus) {
 			// 		alert("Request failed: " + textStatus)
 			// 	})
-
 			// });
+
+			$(function(arr) {
+				var request = $.ajax({
+					type: "POST",
+					url: "http://165.227.67.10:3000",
+					data: {longitude: "100", latitude: "200", words: "mystery", free: "true"}
+				})
+
+				request.done(function(msg) {
+					alert("Data Saved: " + msg)
+				})
+
+				request.fail(function(jqXHR, textStatus) {
+					alert("Request failed: " + textStatus)
+				})
+
+			});
         </script>
 
 </head>
