@@ -5,7 +5,7 @@ const server = new  Hapi.Server();
 server.connection({port: 3000, host: '0.0.0.0'}); // needed for digital ocean.
 
 const connection = mysql.createConnection({
-    host: '165.227.67.10:3000',
+    host: '165.227.67.10',
     user: 'root',
     password: 'password',
     database: 'points'
