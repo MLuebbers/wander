@@ -168,7 +168,7 @@ server.route({
         + "," + words
         + "," + free + '!');
 
-        var sql = "INSERT INTO points (longitude, latitude, words, free) VALUES (lon, lat, words, free)";
+        var sql = "INSERT INTO points (longitude, latitude, words, free) VALUES (@lon, @lat, @words, @free)";
         connection.query(sql, function (err, result) {
         if (err) {
             throw err; 
