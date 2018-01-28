@@ -142,12 +142,12 @@ function drawPoints(){
 
         alert("Data Saved: " + msg)
         for(x = 0; x < msg.length; x++){
-            var lat = msg[x].latitude;
-            var lon = msg[x].longitude;
+            var lat2 = msg[x].latitude;
+            var lon2 = msg[x].longitude;
             var words = msg[x].words;
             // console.log(lat);
             // console.log(lon);
-            var addMyLoc = {lat: lat, lng: lon};
+            var addMyLoc = {lat: lat2, lng: lon2};
             var marker = new google.maps.Marker({
                 position: addMyLoc,
                 map: map,
