@@ -164,11 +164,11 @@ server.route({
         var test = [];
         test.push([lon, lat, words, free]);
 
-        reply('The Values are || '
-        + lon
-        + " || " + lat
-        + " || " + words
-        + " || " + free + '!');
+        // reply('The Values are || '
+        // + lon
+        // + " || " + lat
+        // + " || " + words
+        // + " || " + free + '!');
 
         // var sql = "INSERT INTO points (longitude, latitude, words, free) VALUES (@lon, @lat, @words, @free)";
         // var sql = "INSERT INTO points (longitude, latitude, words, free) VALUES ?";
@@ -178,7 +178,8 @@ server.route({
         if (err) {
             throw err;
         }
-            console.log("1 record inserted");
+            reply(result);
+            // console.log("1 record inserted");
         });
 
         connection.query("SELECT * FROM points", function (err, result, fields) {
