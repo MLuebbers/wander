@@ -1,7 +1,13 @@
 var isScrolling;
-var infobox = false;
-var data = [];
-
+window.infobox = false;
+window.lastAdded_lat = 0;
+var data = {
+    lat: 0,
+    lng: 0,
+    free: false,
+    words: ["Mountain"]
+}
+window.sharedSpace = [];
 
 
 function autoScroll() {
@@ -68,14 +74,19 @@ function CenterControl(controlDiv, map) {
     };
     // Setup the click event listeners: simply set the map to Chicago.
     controlUI.addEventListener('click', function() {
-        if (!infobox) {
+        if (!window.infobox) {
             $('.popup').css( "left", "20px" );
-            infobox = true;
+            window.infobox = true;
         }else{
             $('.popup').css( "left", "-380px" ); 
-            infobox = false;
+            window.infobox = false;
         }
+        
         var addMyLoc = {lat:selfMarker.getPosition().lat(), lng:selfMarker.getPosition().lng()};
+        window.lastAdded_lat = selfMarker.getPosition().lat();
+        data.lat = selfMarker.getPosition().lat();
+        data.lng = selfMarker.getPosition().lng();
+        window.sharedSpace.push(data);
         var marker = new google.maps.Marker({
             position: addMyLoc,
             map: map,

@@ -43,7 +43,7 @@ body {
 
 .popup{
     width:320px;
-    height:350px;
+    height:490px;
     background:#ffac59;
     bottom: 100px;
     left: -380px;
@@ -225,4 +225,32 @@ input:checked + .slider:before {
 
 .slider.round:before {
     border-radius: 50%;
+}
+
+.button1 {
+    background-color: aliceblue;
+    border-radius: 50px;
+    border-style: none;
+    width: 70px;
+    height: 30px;
+    margin: 5px;
+}
+
+#buttons {
+    width:300px;
+    height:120px;
+    overflow: scroll;
+}
+
+.word-button {
+    background-color: aliceblue;
+    border-radius: 50px;
+    border-style: none;
+    width: 70px;
+    height: 30px;
+    margin: 5px;
+}
+
+.word-button.back {
+    background-color:#BFEFFF;
 }

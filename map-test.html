@@ -46,28 +46,38 @@
         </div>
 
         <div id="map"></div>
-        <script type="text/javascript" src="map_script.js"></script>
-        <script async defer
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4jwEziUSpN1BqQI8HKgxN57Tt4HugL5I&callback=initMap">
-        </script>
+
+        <label><button type="button">Pronoun</button></label>
         <div class="popup">
             <div class="close ns-close"></div>
             <form class="input-box">
-                Select words to describe this spot:<br>
-                <input type="text" name="firstname" value="Mickey">
+                Select words to describe this spot:
+                <input id="userWords" type="text" name="firstname" placeholder="Mountain" style="width: 280px;">
+                <br><br>
+                <div id="buttons">
+                    <input type="button" class="button1" onclick="moreWords('Pronoun')" value="Pronoun">
+                    <input type="button" class="button1" onclick="moreWords('Noun')" value="Noun">
+                    <input type="button" class="button1" onclick="moreWords('Adjective')" value="Adjective">
+                    <input type="button" class="button1" onclick="moreWords('Color')" value="Color">
+                    <input type="button" class="button1" onclick="moreWords('Verb')" value="Verb">
+                </div>
                 <br><br>
                 Is this spot free? <br>
-                    <span style="font-size:80%">No &nbsp;</span><label class="switch">
-                        <input type="checkbox">
-                        <span class="slider round"></span>
+                <span style="font-size:80%">No &nbsp;</span><label class="switch">
+                <input type="checkbox" onclick="addFree()">
+                <span class="slider round"></span>
                 </label><span style="font-size:80%">&nbsp;Yes</span>
-                    <br><br>
-                    <input type="submit" value="Submit">
-                    </form> 
-                </div>
-            </body>
-        <script src="JS/libs/jquery-3.2.1.min.js"></script>
-        <script src="JS/libs/isotope.pkgd.min.js"></script>
-        <script type="text/javascript" src="script.js"></script>
-        <script type="text/javascript" src="popup_script.js"></script>
-        </html>
+                <br><br>
+                <button class="button1" type="submit" form="nameform" value="Submit" onclick="submit()">Submit</button>
+            </form> 
+        </div>
+    </body>
+    <script src="JS/libs/jquery-3.2.1.min.js"></script>
+    <script src="JS/libs/isotope.pkgd.min.js"></script>
+    <script type="text/javascript" src="map_script.js"></script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4jwEziUSpN1BqQI8HKgxN57Tt4HugL5I&callback=initMap">
+    </script>
+    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="popup_script.js"></script>
+</html>
