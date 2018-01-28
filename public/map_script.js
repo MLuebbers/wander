@@ -136,8 +136,7 @@ function drawPoints(){
     request.done(function(msg) {
 
         alert("Data Saved: " + msg)
-        var test = JSON.parse(msg);
-        console.log(test);
+        console.log(msg[0]);
         console.log("done");
     })
 
