@@ -168,7 +168,8 @@ server.route({
         + " || " + words
         + " || " + free + '!');
 
-        var sql = "INSERT INTO points (longitude, latitude, words, free) VALUES (@lon, @lat, @words, @free)";
+        // var sql = "INSERT INTO points (longitude, latitude, words, free) VALUES (@lon, @lat, @words, @free)";
+        var sql = "INSERT INTO points (longitude, latitude, words, free) VALUES (12.5, 25.2, 'duck duck goose', true)";
         connection.query(sql, function (err, result) {
         if (err) {
             throw err;
@@ -180,9 +181,7 @@ server.route({
             if (err){
               throw err;
             }
-            console.log("test1");
             console.log(result);
-            console.log("test2");
         });
     }
 });
