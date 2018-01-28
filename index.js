@@ -30,9 +30,9 @@ server.route({
 
 server.route({
     method: 'GET',
-    path: '/{name}',
+    path: '/jenna',
     handler: function(request, reply){
-        reply('Hello, ' + encodeURIComponent(request.params.name) + '!').header("Access-Control-Allow-Origin", "*");
+        reply('Hello, ' + "jenna" + '!').header("Access-Control-Allow-Origin", "*");
     }
 });
 
