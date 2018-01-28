@@ -9,8 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "add": "^2.0.6",
     "hapi": "^16.6.2",
-    "inert": "^5.1.0",
+    "inert": "^4.2.1",
     "mysql": "^2.15.0"
   }
 }
