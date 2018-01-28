@@ -8,7 +8,7 @@ var data = {
     words: ["Mountain"]
 }
 window.sharedSpace = [];
-markers = []
+var markers = []
 
 function autoScroll() {
     window.clearTimeout( isScrolling );
