@@ -72,7 +72,7 @@ function submit() {
 
                 var request = $.ajax({
                     type: "GET",
-                    url: "http://165.227.67.10:3002/add",
+                    url: "http://165.227.67.10:3004/add",
                     data: {longitude: data.lng, latitude: data.lat, words: (data.words.toString()).replace(",", " "), free: data.free}
                 })
 

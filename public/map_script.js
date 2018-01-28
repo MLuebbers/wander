@@ -135,7 +135,7 @@ function drawPoints(){
     console.log("drawwwing points");
     var request = $.ajax({
         type: "GET",
-        url: "http://165.227.67.10:3002/get"
+        url: "http://165.227.67.10:3004/get"
     })
 
     request.done(function(msg) {
@@ -156,6 +156,7 @@ function drawPoints(){
                 map: map,
                 icon: blueMarker,
                 id:x,
+                words: words,
             });
             markers.push(marker);
             markers[x].addListener('click', function() {
@@ -165,8 +166,7 @@ function drawPoints(){
                         // }
 
                         infowindow = new google.maps.InfoWindow({
-                            // console.log( msg[marker.id].words.toString());
-                            content: msg[marker.id].words.toString()
+                            content: markers[x].words.toString();
                         });
                 infowindow.open(map, markers[x]);
             })
