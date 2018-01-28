@@ -160,7 +160,7 @@ function drawPoints(){
             });
             markers[x] = marker;
             console.log(markers);
-            marker.addListener('click', function() {
+            markers[x].addListener('click', function() {
                         // var weirdWords = words.toString();
                         // for (j=0; j< data.length; j++) {
                         //     weirdWords += " " + data[j];
@@ -169,7 +169,7 @@ function drawPoints(){
                         infowindow = new google.maps.InfoWindow({
                             content: marker.words.toString()
                         });
-                infowindow.open(map, marker);
+                infowindow.open(map, markers[x]);
             })
         }
 
