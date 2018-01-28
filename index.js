@@ -30,10 +30,10 @@ server.register(require('inert'), (err) => {
 
 server.route({
     method: 'GET',
-    path: '/',
+    path: '/?={name}',
     handler: function(request, reply){
-        if(encodeURIComponent(request.query.name)) {
-            reply('Hello, ' + encodeURIComponent(request.query.name) + '!');
+        if(encodeURIComponent(request.params.name)) {
+            reply('Hello, ' + encodeURIComponent(request.params.name) + '!');
         } else {
             reply('Hello, world!');
         }
