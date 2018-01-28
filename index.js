@@ -97,17 +97,17 @@ server.start((err) => {
 
 });
 
-server.route({
-    method: 'GET',
-    path: '/',
-    handler: function(request, reply){
-        if(encodeURIComponent(request.query.name)) {
-            reply('Hello, ' + encodeURIComponent(request.query.name) + '!');
-        } else {
-            reply('Hello, world!');
-        }
-    }
-});
+// server.route({
+//     method: 'GET',
+//     path: '/',
+//     handler: function(request, reply){
+//         if(encodeURIComponent(request.query.name)) {
+//             reply('Hello, ' + encodeURIComponent(request.query.name) + '!');
+//         } else {
+//             reply('Hello, world!');
+//         }
+//     }
+// });
 
 
 // server.route({
