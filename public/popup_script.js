@@ -61,6 +61,30 @@ function submit() {
     my_user_words = [];
     document.getElementById('userWords').value = "";
     window.infobox = false;
+
+    $(function(arr) {
+                var data = [];
+                for (i =0; i < window.sharedSpace.length; i++) {
+                    if(window.sharedSpace[i].lat==window.lastAdded_lat) {
+                        data = window.sharedSpace[i];
+                    }
+                }
+
+                var request = $.ajax({
+                    type: "GET",
+                    url: "http://165.227.67.10:3000",
+                    data: {longitude: data.lng, latitude: data.lat, words: data.words.toString(), free: data.free}
+                })
+
+                request.done(function(msg) {
+                    alert("Data Saved: " + msg)
+                })
+
+                request.fail(function(jqXHR, textStatus) {
+                    alert("Request failed: " + textStatus)
+                })
+
+    });
 }
 
 function addFree() {
