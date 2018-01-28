@@ -130,7 +130,7 @@ function drawPoints(){
  // alert(getData[name]);
     var request = $.ajax({
         type: "GET",
-        url: "http://165.227.67.10:3002/get";
+        url: "http://165.227.67.10:3002/get"
     })
 
     request.done(function(msg) {
