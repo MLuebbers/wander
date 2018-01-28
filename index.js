@@ -48,11 +48,11 @@ server.route({
 
 
 server.route({
-    method: 'POST',
-    path: '/',
-    handler: function(request, reply){
-        reply('Longitude: ' + request.query.longitude + "," + 'Latitude: ' + request.query.latitude + "," + 'Words: ' + request.query.words + "," + 'Free: ' + request.query.free);
-
+        method: 'POST',
+        path: '/',
+        handler: function(request, reply){
+            reply('Longitude: ' + request.query.longitude + "," + 'Latitude: ' + request.query.latitude + "," + 'Words: ' + request.query.words + "," + 'Free: ' + request.query.free);
+        }
     });
 
 server.route({
