@@ -162,6 +162,8 @@ server.route({
         var words = "test string"; //(request.query.words).string();
         var free = (request.query.free == 'true');
 
+        var test = [lon, lat, words, free];
+
         reply('The Values are || '
         + lon
         + " || " + lat
@@ -169,10 +171,10 @@ server.route({
         + " || " + free + '!');
 
         // var sql = "INSERT INTO points (longitude, latitude, words, free) VALUES (@lon, @lat, @words, @free)";
-        var sql = "INSERT INTO points (longitude, latitude, words, free) VALUES ?" + lon + ',' + lat + ',' + words + ',' + free;
+        var sql = "INSERT INTO points (longitude, latitude, words, free) VALUES ?";
         // var sql = "INSERT INTO points (longitude, latitude, words, free) VALUES (12.5, 25.2, 'duck duck goose', true)";
         // var sql = "INSERT INTO points (longitude, latitude, words, free) VALUES (27, 212, 'dudsfk duck msse', false)";
-        connection.query(sql, function (err, result) {
+        connection.query(sql, [test], function (err, result) {
         if (err) {
             throw err;
         }
