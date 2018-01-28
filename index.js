@@ -29,6 +29,14 @@ server.route({
     }
 });
 
+server.route({
+        method: 'GET',
+        path: '/index',
+        handler: function (request, reply) {
+            reply.file('./public/hello.html');
+        }
+    });
+
 server.start((err) => {
     if(err){
         throw err;
