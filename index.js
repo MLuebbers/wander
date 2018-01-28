@@ -157,8 +157,8 @@ server.route({
     method: 'GET',
     path: '/',
     handler: function(request, reply){
-        var lon = (request.query.longitude).parseFloat();
-        var lat = (request.query.latitude).parseFloat();
+        var lon = (request.query.longitude);
+        var lat = (request.query.latitude);
         var words = "test string"; //(request.query.words).string();
         var free = (request.query.free == 'true');
 
