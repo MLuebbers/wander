@@ -17,6 +17,14 @@ server.register(require('inert'), (err) => {
             reply.file('./Test/test.html');
         }
     });
+
+    server.route({
+        method: 'GET',
+        path: '/jquery-3.3.1.min.js',
+        handler: function (request, reply) {
+            reply.file('./Test/jquery-3.3.1.min.js');
+        }
+    });
 });
 
 server.route({
