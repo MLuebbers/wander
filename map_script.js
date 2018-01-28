@@ -1,6 +1,6 @@
 var isScrolling;
 window.infobox = false;
-window.lastAdded_lat = 0;
+window.lastAdded_lat = 41.8261471;
 var data = {
     lat: 0,
     lng: 0,
@@ -22,7 +22,6 @@ function autoScroll() {
 }
 function scrollToAdd(){
     document.getElementById("add-info").scrollIntoView({behavior: "smooth"});
-    console.log('scroll to add');
 }
 function scrollToAbout(){
     document.getElementById("map").scrollIntoView({behavior: "smooth"});
@@ -81,7 +80,7 @@ function CenterControl(controlDiv, map) {
             $('.popup').css( "left", "-380px" ); 
             window.infobox = false;
         }
-        
+
         var addMyLoc = {lat:selfMarker.getPosition().lat(), lng:selfMarker.getPosition().lng()};
         window.lastAdded_lat = selfMarker.getPosition().lat();
         data.lat = selfMarker.getPosition().lat();
@@ -92,7 +91,22 @@ function CenterControl(controlDiv, map) {
             map: map,
             icon: blueMarker,
         });
+        
         marker.addListener('click', function() {
+            for (i =0; i < window.sharedSpace.length; i++) {
+                if(window.sharedSpace[i].lat==marker.getPosition().lat()) {
+                    var weirdWords = "";
+                    data = window.sharedSpace[i].words;
+                    console.log(marker.getPosition());
+                    for (j=0; j< data.length; j++) {
+                        weirdWords += " " + data[j];
+                    }
+                    
+                    infowindow = new google.maps.InfoWindow({
+                        content: weirdWords
+                    });
+                }
+            }
             infowindow.open(map, marker);
         })
     });
@@ -430,6 +444,13 @@ function initMap() {
             icon: blueMarker,
         });
         marker.addListener('click', function() {
+
+            for (i =0; i < window.sharedSpace.length; i++) {
+                if(window.sharedSpace[i].lat==marker.getPosition().lat()) {
+                    data = window.sharedSpace[i];
+                }
+            }
+            console.log(data);
             infowindow.open(map, marker);
         })
     })

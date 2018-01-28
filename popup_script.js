@@ -1,6 +1,6 @@
 words = {};
 words['Pronoun'] = ['I','You','we','this','that','who','what'];
-words['Noun'] =['woman','man','person','fish','bird','dog','louse','tree','seed','leaf','root','bark','skin','flesh','blood','bone','grease','egg','horn','tail','feather','hair','head','ear','eye','name','nose','mouth','tooth','tongue','claw','foot','knee','hand','belly','neck','breasts','heart','liver','night','sun','moon','star','water','rain','stone','sand','earth','cloud','smoke','fire','ash','burn','path','mountain'];
+words['Noun'] =['woman','man','person','fish','bird','dog','louse','tree','seed','leaf','root','bark','skin','flesh','blood','bone','grease','egg','horn','tail','feather','hair','head','ear','eye','name','nose','mouth','tooth','tongue','claw','foot','knee','hand','belly','neck','heart','liver','night','sun','moon','star','water','rain','stone','sand','earth','cloud','smoke','fire','ash','burn','path','mountain'];
 words['Verb'] =['drink','eat','bite','see','hear','know','sleep','die','kill','swim','fly','walk','come','lie','sit','stand','give','say'];
 words['Color']=['red','green','yellow','white','black'];
 words['Adjective'] =['not','all','many','one','two','big','long','small','hot','cold','full','new','good','round','dry' ];
@@ -9,6 +9,7 @@ my_user_words = [];
 
 function moreWords(wordType) {
     if (wordType==="Clear") {
+        my_user_words = [];
         document.getElementById('userWords').value = "";
         var data = [];
         for (i =0; i < window.sharedSpace.length; i++) {
@@ -57,6 +58,8 @@ function back() {
 
 function submit() {
     $('.popup').css( "left", "-380px" ); 
+    my_user_words = [];
+    document.getElementById('userWords').value = "";
     window.infobox = false;
 }
 
