@@ -157,14 +157,13 @@ function drawPoints(){
                 icon: blueMarker,
             });
             marker.addListener('click', function() {
-                        var weirdWords = "";
-                        data = words;
-                        for (j=0; j< data.length; j++) {
-                            weirdWords += " " + data[j];
-                        }
+                        // var weirdWords = words.toString();
+                        // for (j=0; j< data.length; j++) {
+                        //     weirdWords += " " + data[j];
+                        // }
 
                         infowindow = new google.maps.InfoWindow({
-                            content: weirdWords
+                            content: words.toString()
                         });
                 infowindow.open(map, marker);
             })
