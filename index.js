@@ -149,13 +149,18 @@ server.route({
     method: 'GET',
     path: '/',
     handler: function(request, reply){
-        reply('Hello2, '
-        + request.query.longitude
-        + "," + request.query.latitude
-        + "," + request.query.words
-        + "," + request.query.free + '!');
+        var lon = request.query.longitude
+        var lat = request.query.latitude
+        var words = request.query.words
+        var free = request.query.free
 
-        var sql = "INSERT INTO points (longitude, latitude, words, free) VALUES (request.query.longitude, request.query.latitude, request.query.words, request.query.free)";
+        reply('Hello2, '
+        + lon
+        + "," + lat
+        + "," + words
+        + "," + free + '!');
+
+        var sql = "INSERT INTO points (longitude, latitude, words, free) VALUES (lon, lat, words, free)";
         connection.query(sql, function (err, result) {
         if (err) {
             throw err; 
