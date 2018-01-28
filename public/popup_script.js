@@ -69,6 +69,11 @@ function submit() {
                         data = window.sharedSpace[i];
                     }
                 }
+                var request = $.ajax({
+                    type: "GET",
+                    url: "http://165.227.67.10:3001/get",
+                    data: {longitude: data.lng, latitude: data.lat}
+                })
 
                 var request = $.ajax({
                     type: "GET",
