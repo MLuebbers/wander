@@ -114,13 +114,13 @@ server.start((err) => {
 
 });
 
-server.route({
-        method: 'GET',
-        path: '/test',
-        handler: function (request, reply) {
-            reply.file('./Test/test.html');
-        }
-    });
+// server.route({
+//         method: 'GET',
+//         path: '/test',
+//         handler: function (request, reply) {
+//             reply.file('./Test/test.html');
+//         }
+//     });
 
 
 // server.route({
