@@ -47,7 +47,7 @@ connection.connect(function(err) {
 
     console.log('connected as id ' + connection.threadId);
 
-    var sql = "DROP TABLE customers";
+    var sql = "DROP TABLE points";
     connection.query(sql, function (err, result) {
         if (err) throw err;
         console.log("Table deleted");
