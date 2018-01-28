@@ -164,7 +164,7 @@ function drawPoints(){
                         // }
 
                         infowindow = new google.maps.InfoWindow({
-                            console.log(marker.id)
+                            console.log(marker.id);
                             content: msg[marker.id].words.toString()
                         });
                 infowindow.open(map, marker);
