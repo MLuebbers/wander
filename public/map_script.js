@@ -44,6 +44,11 @@ var chicago = {lat: 41.85, lng: -87.65};
        * @constructor
        */
 function CenterControl(controlDiv, map) {
+    var image = {
+        url: 'http://www.clker.com/cliparts/P/1/h/u/d/k/upright-white-triangle-hi.png', // image is 512 x 512
+        scaledSize : new google.maps.Size(34, 30),
+    };
+    
     var pos = {
         lat: 41.8251471,
         lng: -71.4028689
@@ -55,7 +60,7 @@ function CenterControl(controlDiv, map) {
             map: map,
             //zIndex: 99999,
         });
-        
+
     // Set CSS for the control border.
     var controlUI = document.createElement('div');
     controlUI.style.backgroundColor = '#ffac59';
