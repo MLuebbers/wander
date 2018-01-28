@@ -176,8 +176,7 @@ server.route({
             console.log("1 record inserted");
         });
 
-        if (err) throw err;
-          connection.query("SELECT * FROM points", function (err, result, fields) {
+        connection.query("SELECT * FROM points", function (err, result, fields) {
             if (err){
               throw err;  
             } 
