@@ -1,0 +1,17 @@
+{
+  "name": "wander",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "add": "^2.0.6",
+    "hapi": "^16.6.2",
+    "inert": "^4.2.1",
+    "mysql": "^2.15.0"
+  }
+}
