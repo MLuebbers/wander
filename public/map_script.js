@@ -33,7 +33,18 @@ var map;
 var wanderPath;
 
 var infoWindow;
-var selfMarker;
+
+var pos = {
+    lat: 41.8251471,
+    lng: -71.4028689
+};
+
+var selfMarker = new google.maps.Marker({
+        position: pos,
+        icon:image,
+        map: map,
+        //zIndex: 99999,
+    });
 
 var chicago = {lat: 41.85, lng: -87.65};
 
@@ -400,6 +411,8 @@ function initMap() {
         map: map,
         //zIndex: 99999,
     });
+
+
 
     if (navigator.geolocation) {
         navigator.geolocation.watchPosition(function(position) {
