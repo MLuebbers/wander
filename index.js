@@ -17,7 +17,7 @@ server.route({
     method: 'GET',
     path: '/{name}',
     handler: function(request, reply){
-        reply.setHeader("Access-Control-Allow-Origin", "*");
+        request.setHeader("Access-Control-Allow-Origin", "*");
         reply('Hello, ' + encodeURIComponent(request.params.name) + '!');
     }
 });
