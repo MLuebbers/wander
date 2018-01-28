@@ -54,7 +54,11 @@ server.route({
     method: 'POST',
     path: '/{longitude}/{latitude}/{words}/{free}',
     handler: function(request, reply){
-        reply('Hello2, ' + encodeURIComponent(request.params.longitude) + "," + encodeURIComponent(request.params.latitude) + "," + encodeURIComponent(request.params.words) + "," + encodeURIComponent(request.params.free) + '!');
+        reply('Hello2, '
+        + encodeURIComponent(request.params.longitude)
+        + "," + encodeURIComponent(request.params.latitude)
+        + "," + encodeURIComponent(request.params.words)
+        + "," + encodeURIComponent(request.params.free) + '!');
     }
 });
 
