@@ -44,7 +44,7 @@ server.register(require('inert'), (err) => {
         method: 'GET',
         path: '/jquery-3.2.1.min.js',
         handler: function (request, reply) {
-            reply.file('./public/JS/libs/jquery-3.2.1.min.js');
+            reply.file('./public/jquery-3.2.1.min.js');
         }
     });
 
