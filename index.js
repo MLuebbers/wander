@@ -4,6 +4,28 @@ const mysql = require('mysql');
 const server = new  Hapi.Server();
 server.connection({port: 3001, host: '0.0.0.0'}); // needed for digital ocean.
 
+function addDemoPoints(){
+    var test = [];
+    test.push([41.8267760, -71.4044182, "Clock big old", true]);
+    test.push([41.8264849, -71.4014262, "I is blue. I is bear. I is light", true]);
+    test.push([41.8273806, -71.4017960, "Silver man, woman, circle", true]);
+    connection.query('INSERT INTO points (longitude, latitude, words, free) VALUES ?', [test], function (err, result) {
+    if (err) {
+        throw err;
+    }
+        // console.log("1 record inserted");
+    });
+
+    connection.query("SELECT * FROM points", function (err, result, fields) {
+        if (err){
+          throw err;
+        }
+        console.log(result);
+    });
+
+}
+
+
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -19,20 +41,7 @@ connection.connect(function(err) {
 
     console.log('connected as id ' + connection.threadId);
 
-    // connection.query("CREATE DATABASE wander", function (err, result) {
-    //     if (err) {
-    //         throw err;
-    //     }
-    //     console.log("Database created");
-    // });
-
-    // var sql = "CREATE TABLE points (longitude FLOAT, latitude FLOAT, words VARCHAR(140), free BOOLEAN)";
-    // connection.query(sql, function (err, result) {
-    //     if (err) {
-    //         throw err;
-    //     }
-    //     console.log("Table created");
-    // });
+    addDemoPoints();
 });
 server.register(require('inert'), (err) => {
 
@@ -114,26 +123,7 @@ server.start((err) => {
 
 });
 
-function addDemoPoints(){
-    var test = [];
-    test.push([41.8267760, -71.4044182, "Clock big old", true]);
-    test.push([41.8264849, -71.4014262, "I is blue. I is bear. I is light", true]);
-    test.push([41.8273806, -71.4017960, "Silver man, woman, circle", true]);
-    connection.query('INSERT INTO points (longitude, latitude, words, free) VALUES ?', [test], function (err, result) {
-    if (err) {
-        throw err;
-    }
-        // console.log("1 record inserted");
-    });
 
-    connection.query("SELECT * FROM points", function (err, result, fields) {
-        if (err){
-          throw err;
-        }
-        console.log(result);
-    });
-
-}
 // server.route({
 //         method: 'GET',
 //         path: '/test',
