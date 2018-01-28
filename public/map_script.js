@@ -127,6 +127,11 @@ function drawPoints(){
  //        }
  //    });
  // alert(getData[name]);
+
+     var blueMarker = {
+         url: 'https://cdn4.iconfinder.com/data/icons/ios7-active-tab/512/map_marker-512.png', // image is 512 x 512
+         scaledSize : new google.maps.Size(32, 32),
+     };
     console.log("drawwwing points");
     var request = $.ajax({
         type: "GET",
@@ -136,7 +141,36 @@ function drawPoints(){
     request.done(function(msg) {
 
         alert("Data Saved: " + msg)
-        console.log(msg[0]);
+        for(i = 0; i < msg.length; i++){
+            var lat = msg[i].latitude;
+            var lon = msg[i].longitude;
+            var words = msg[i].words;
+            var addMyLoc = {lat: lat, lng: lon};
+            var marker = new google.maps.Marker({
+                position: addMyLoc,
+                map: map,
+                icon: blueMarker,
+            });
+
+            marker.addListener('click', function() {
+                for (i =0; i < window.sharedSpace.length; i++) {
+                    if(window.sharedSpace[i].lat==marker.getPosition().lat()) {
+                        var weirdWords = "";
+                        data = words;
+                        console.log(marker.getPosition());
+                        for (j=0; j< data.length; j++) {
+                            weirdWords += " " + data[j];
+                        }
+
+                        infowindow = new google.maps.InfoWindow({
+                            content: weirdWords
+                        });
+                    }
+                }
+                infowindow.open(map, marker);
+            })
+        }
+
         console.log("done");
     })
 
