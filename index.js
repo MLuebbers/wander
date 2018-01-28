@@ -100,6 +100,14 @@ server.route({
 
 server.route({
         method: 'GET',
+        path: '/test',
+        handler: function (request, reply) {
+            reply.file('./Test/test.html');
+        }
+    });
+
+server.route({
+        method: 'GET',
         path: '/index',
         handler: function (request, reply) {
             reply.file('./public/.html');
