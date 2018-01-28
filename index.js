@@ -32,7 +32,8 @@ server.route({
     method: 'GET',
     path: '/jenna',
     handler: function(request, reply){
-        reply('Hello, ' + "jenna" + '!').header("Access-Control-Allow-Origin", "*");
+        // .header("Access-Control-Allow-Origin", "*")
+        reply('Hello, ' + "jenna" + '!');
     }
 });
 
@@ -40,7 +41,7 @@ server.route({
     method: 'POST',
     path: '/{longitude}/{latitude}/{words}/{free}',
     handler: function(request, reply){
-        reply('Hello2, ' + encodeURIComponent(request.params.longitude) + "," + encodeURIComponent(request.params.latitude) + "," + encodeURIComponent(request.params.words) + "," + encodeURIComponent(request.params.free)'!');
+        reply('Hello2, ' + encodeURIComponent(request.params.longitude) + "," + encodeURIComponent(request.params.latitude) + "," + encodeURIComponent(request.params.words) + "," + encodeURIComponent(request.params.free) + '!');
     }
 });
 
