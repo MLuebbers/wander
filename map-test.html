@@ -6,6 +6,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="main.css">
         <script>
+<<<<<<< HEAD
             var isScrolling;
             function autoScroll() {
                 window.clearTimeout( isScrolling );
@@ -23,6 +24,42 @@
             function scrollToAbout(){
                 document.getElementById("about").scrollIntoView({behavior: "smooth"});
             }
+=======
+
+            var isScrolling;
+
+            function autoScroll() {
+	               window.clearTimeout( isScrolling );
+	               isScrolling = setTimeout(function() {
+                       console.log( 'Scrolling has stopped.' );
+                       if(window.scrollY >= window.innerHeight/2){
+                           scrollToMap();
+                       } else {
+                           scrollToAbout();
+                       }
+                   }, 66);
+            }
+
+            function scrollToMap(){
+                document.getElementById("map").scrollIntoView({behavior: "smooth"});
+                // var pos = window.scrollY;
+                // var id = setInterval(frame, 5);
+                // function frame() {
+                //     if (pos == window.innerHeight) {
+                //         //window.scrollTo(window.innerHeight);
+                //         clearInterval(id);
+                //     } else {
+                //         pos += 6;
+                //         window.scrollTo(0,pos);
+                //     }
+                // }
+            }
+
+            function scrollToAbout(){
+                document.getElementById("about").scrollIntoView({behavior: "smooth"});
+            }
+
+>>>>>>> master
         </script>
     </head>
     <body onScroll="autoScroll()">
@@ -79,5 +116,9 @@
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4jwEziUSpN1BqQI8HKgxN57Tt4HugL5I&callback=initMap">
     </script>
     <script type="text/javascript" src="script.js"></script>
+<<<<<<< HEAD
     <script type="text/javascript" src="popup_script.js"></script>
 </html>
+=======
+</html>
+>>>>>>> master
