@@ -124,9 +124,9 @@ server.route({
     path: '/',
     handler: function(request, reply){
         reply('Hello2, '
-        + request.query.longitude
-        + "," + request.query.latitude
-        + "," + request.query.words
-        + "," + request.query.free + '!');
+        + request.query.longitude);
+        // + "," + request.query.latitude
+        // + "," + request.query.words
+        // + "," + request.query.free + '!');
     }
 });
