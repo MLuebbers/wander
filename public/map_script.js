@@ -140,7 +140,7 @@ function drawPoints(){
 
     request.done(function(msg) {
 
-        alert("Data Saved: " + msg)
+        // alert("Data Saved: " + msg)
         for(x = 0; x < msg.length; x++){
             // var lat2 = 41.8267760;
             // var lon2 = -71.40441821;
@@ -156,7 +156,18 @@ function drawPoints(){
                 map: map,
                 icon: blueMarker,
             });
-            //console.log(marker);
+            marker.addListener('click', function() {
+                        var weirdWords = "";
+                        data = words;
+                        for (j=0; j< data.length; j++) {
+                            weirdWords += " " + data[j];
+                        }
+
+                        infowindow = new google.maps.InfoWindow({
+                            content: weirdWords
+                        });
+                infowindow.open(map, marker);
+            })
         }
 
         console.log("done");
