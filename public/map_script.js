@@ -148,12 +148,13 @@ function drawPoints(){
             // console.log(lat);
             // console.log(lon);
             var addMyLoc = {lat: lat2, lng: lon2};
+            console.log(addMyLoc);
             var marker = new google.maps.Marker({
                 position: addMyLoc,
                 map: map,
                 icon: blueMarker,
             });
-            console.log(marker);
+            //console.log(marker);
         }
 
         console.log("done");
