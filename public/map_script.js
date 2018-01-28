@@ -25,9 +25,8 @@ function scrollToAbout(){
 
 
 var map;
-<<<<<<< HEAD:public/map_script.js
 var wanderPath;
-=======
+
 var infoWindow;
 var selfMarker;
 
@@ -75,7 +74,7 @@ function CenterControl(controlDiv, map) {
             $('.popup').css( "left", "20px" );
             infobox = true;
         }else{
-            $('.popup').css( "left", "-380px" ); 
+            $('.popup').css( "left", "-380px" );
             infobox = false;
         }
         var addMyLoc = {lat:selfMarker.getPosition().lat(), lng:selfMarker.getPosition().lng()};
@@ -93,9 +92,6 @@ function CenterControl(controlDiv, map) {
 
 
 
-
-
->>>>>>> Lina:map_script.js
 function initMap() {
     var uluru = {lat: 41.8239, lng: -71.4128};
 
@@ -103,14 +99,12 @@ function initMap() {
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         zoom: 17,
         center: {lat: 41.8261471, lng: -71.4028689},
-<<<<<<< HEAD:public/map_script.js
         streetViewControl: false,
         mapTypeControl: false,
         gestureHandling: 'greedy',
-=======
         disableDefaultUI: true,
-        gestureHandling: 'cooperative', 
->>>>>>> Lina:map_script.js
+        gestureHandling: 'cooperative',
+
         styles: [
             {
                 "elementType": "geometry",
@@ -360,7 +354,6 @@ function initMap() {
         lat: 41.8251471,
         lng: -71.4028689
     };
-<<<<<<< HEAD:public/map_script.js
 
 
     wanderPath = new google.maps.Polyline({
@@ -376,7 +369,7 @@ function initMap() {
     infoWindow.setPosition(pos);
     infoWindow.setContent('You are here!');
     infoWindow.open(map);
-=======
+
     var image = {
         url: 'http://www.clker.com/cliparts/P/1/h/u/d/k/upright-white-triangle-hi.png', // image is 512 x 512
         scaledSize : new google.maps.Size(34, 30),
@@ -387,7 +380,7 @@ function initMap() {
         map: map,
         //zIndex: 99999,
     });
->>>>>>> Lina:map_script.js
+
     if (navigator.geolocation) {
         navigator.geolocation.watchPosition(function(position) {
             pos = {
@@ -456,10 +449,10 @@ function initMap() {
 
 
     //map.addListener('click', addLatLng);
-    
+
 }
 
-<<<<<<< HEAD:public/map_script.js
+
 function addLatLng(y, x) {
         var path = wanderPath.getPath();
         path.push(new google.maps.LatLng(y, x));
@@ -467,6 +460,3 @@ function addLatLng(y, x) {
             path.removeAt(0);
         }
 }
-=======
-
->>>>>>> Lina:map_script.js
