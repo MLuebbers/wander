@@ -4,6 +4,21 @@ const Hapi = require('hapi');
 const server = new  Hapi.Server();
 server.connection({port: 3000, host: '0.0.0.0'}); // needed for digital ocean.
 
+server.register(require('inert'), (err) => {
+
+    if (err) {
+        throw err;
+    }
+
+    server.route({
+        method: 'GET',
+        path: '/test',
+        handler: function (request, reply) {
+            reply.file('./Test/test.html');
+        }
+    });
+});
+
 server.route({
     method: 'GET',
     path: '/',
@@ -33,7 +48,7 @@ server.route({
         method: 'GET',
         path: '/index',
         handler: function (request, reply) {
-            reply.file('./public/hello.html');
+            reply.file('./public/.html');
         }
     });
 
