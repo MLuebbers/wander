@@ -169,8 +169,9 @@ server.route({
         + " || " + free + '!');
 
         // var sql = "INSERT INTO points (longitude, latitude, words, free) VALUES (@lon, @lat, @words, @free)";
-        var sql = "INSERT INTO points (longitude, latitude, words, free) VALUES (12.5, 25.2, 'duck duck goose', true)";
-        var sql = "INSERT INTO points (longitude, latitude, words, free) VALUES (27, 212, 'dudsfk duck msse', false)";
+        var sql = "INSERT INTO points (longitude, latitude, words, free) VALUES ?";
+        // var sql = "INSERT INTO points (longitude, latitude, words, free) VALUES (12.5, 25.2, 'duck duck goose', true)";
+        // var sql = "INSERT INTO points (longitude, latitude, words, free) VALUES (27, 212, 'dudsfk duck msse', false)";
         connection.query(sql, function (err, result) {
         if (err) {
             throw err;
