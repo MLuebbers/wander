@@ -391,6 +391,7 @@ function initMap() {
                 ]
             }
         ]
+        drawPoints();
     })
     var centerControlDiv = document.createElement('div');
     var centerControl = new CenterControl(centerControlDiv, map);
