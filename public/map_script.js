@@ -145,7 +145,7 @@ function drawPoints(){
             var lat = msg[x].latitude;
             var lon = msg[x].longitude;
             var words = msg[x].words;
-            // console.log(lat);
+            console.log(lat);
             // console.log(lon);
             var addMyLoc = {lat: lat, lng: lon};
             var marker = new google.maps.Marker({
