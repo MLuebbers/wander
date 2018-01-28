@@ -12,9 +12,9 @@ server.register(require('inert'), (err) => {
 
     server.route({
         method: 'GET',
-        path: '/test',
+        path: '/home',
         handler: function (request, reply) {
-            reply.file('./Test/test.html');
+            reply.file('./public/index.html');
         }
     });
 
@@ -22,7 +22,7 @@ server.register(require('inert'), (err) => {
         method: 'GET',
         path: '/jquery-3.3.1.min.js',
         handler: function (request, reply) {
-            reply.file('./Test/jquery-3.3.1.min.js');
+            reply.file('./public/JS/libs/jquery-3.2.1.min.js');
         }
     });
 });
