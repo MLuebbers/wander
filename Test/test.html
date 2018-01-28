@@ -1,0 +1,45 @@
+<html>
+
+<head>
+
+	<script type='text/javascript' src="jquery-3.3.1.min.js"></script>
+        <script>
+   //      	$(function(arr) {
+			// 	$.ajax({
+			// 		method: "POST",
+			// 		url: "165.227.67.10:3000",
+			// 		data: {longitude: "100", latitude: "200", words: "test", free: "true"}
+			// 	}).done(function(msg) {
+			// 		alert("Data Saved: " + msg)
+			// 		console.log("yay")
+			// 	})
+			// });
+			$(function(arr) {
+				var request = $.ajax({
+					type: "GET",
+					url: "http://165.227.67.10:3000/Jenna",
+					//data: {name: 'Jenna'}
+				});
+
+				request.done(function(msg) {
+					alert("Data Saved: " + msg)
+				})
+
+				request.fail(function(jqXHR, textStatus) {
+					alert("Request failed: " + textStatus)
+				})
+
+			});
+        </script>
+
+</head>
+
+<body>
+
+	<p> This is a test. </p>
+
+	<p> Jenna. </p>
+
+</body>
+
+</html>

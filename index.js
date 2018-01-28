@@ -4,6 +4,21 @@ const Hapi = require('hapi');
 const server = new  Hapi.Server();
 server.connection({port: 3000, host: '0.0.0.0'}); // needed for digital ocean.
 
+server.register(require('inert'), (err) => {
+
+    if (err) {
+        throw err;
+    }
+
+    server.route({
+        method: 'GET',
+        path: '/test',
+        handler: function (request, reply) {
+            reply.file('./Test/test.html');
+        }
+    });
+});
+
 server.route({
     method: 'GET',
     path: '/',
@@ -15,19 +30,27 @@ server.route({
 
 server.route({
     method: 'GET',
-    path: '/{name}',
+    path: '/jenna',
     handler: function(request, reply){
-        reply('Hello, ' + encodeURIComponent(request.params.name) + '!');
+        reply('Hello, ' + "jenna" + '!').header("Access-Control-Allow-Origin", "*");
     }
 });
 
 server.route({
     method: 'POST',
-    path: '/{name}',
+    path: '/{longitude}/{latitude}/{words}/{free}',
     handler: function(request, reply){
-        reply('Hello2, ' + encodeURIComponent(request.params.name) + '!');
+        reply('Hello2, ' + encodeURIComponent(request.params.longitude) + "," + encodeURIComponent(request.params.latitude) + "," + encodeURIComponent(request.params.words) + "," + encodeURIComponent(request.params.free)'!');
     }
 });
+
+server.route({
+        method: 'GET',
+        path: '/index',
+        handler: function (request, reply) {
+            reply.file('./public/.html');
+        }
+    });
 
 server.start((err) => {
     if(err){

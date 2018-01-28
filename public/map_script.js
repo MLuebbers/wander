@@ -1,13 +1,15 @@
 var map;
+var wanderPath;
 function initMap() {
     var uluru = {lat: 41.8239, lng: -71.4128};
+
     map = new google.maps.Map(document.getElementById('map'), {
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         zoom: 17,
         center: {lat: 41.8261471, lng: -71.4028689},
         streetViewControl: false,
         mapTypeControl: false,
-        gestureHandling: 'greedy', 
+        gestureHandling: 'greedy',
         styles: [
             {
                 "elementType": "geometry",
@@ -253,15 +255,28 @@ function initMap() {
         lat: 41.8261471,
         lng: -71.4028689
     };
+
+
+    wanderPath = new google.maps.Polyline({
+
+        geodesic: false,
+        strokeColor: '#FF0000',
+        strokeOpacity: 1.0,
+        strokeWeight: 2
+    });
+
+    wanderPath.setMap(map);
+
     infoWindow.setPosition(pos);
     infoWindow.setContent('You are here!');
     infoWindow.open(map);
     if (navigator.geolocation) {
         navigator.geolocation.watchPosition(function(position) {
-            var pos = {
+            pos = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
+            addLatLng(pos.lat, pos.lng);
 
             infoWindow.setPosition(pos);
             infoWindow.setContent('You are here!');
@@ -284,12 +299,24 @@ function initMap() {
     }
 
     google.maps.event.addListener(map, 'click', function(evt) {
-        // get existing path
+
         var adddedMarkerPos = {lat:evt.latLng.lat(), lng:evt.latLng.lng()};
         var marker = new google.maps.Marker({
             position: adddedMarkerPos,
             map: map,
         });
     })
+
+
+
+    //map.addListener('click', addLatLng);
+    
 }
 
+function addLatLng(y, x) {
+        var path = wanderPath.getPath();
+        path.push(new google.maps.LatLng(y, x));
+        if(path.getLength() > 5){
+            path.removeAt(0);
+        }
+}
