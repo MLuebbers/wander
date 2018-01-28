@@ -162,11 +162,11 @@ server.route({
         var words = request.query.words
         var free = request.query.free
 
-        reply('Hello2, '
+        reply('The Values are || '
         + lon
-        + "," + lat
-        + "," + words
-        + "," + free + '!');
+        + " || " + lat
+        + " || " + words
+        + " || " + free + '!');
 
         var sql = "INSERT INTO points (longitude, latitude, words, free) VALUES (@lon, @lat, @words, @free)";
         connection.query(sql, function (err, result) {
@@ -180,7 +180,9 @@ server.route({
             if (err){
               throw err;
             }
+            console.log("test1");
             console.log(result);
+            console.log("test2");
         });
     }
 });
