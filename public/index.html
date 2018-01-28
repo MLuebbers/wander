@@ -4,47 +4,18 @@
         <title>Wander App</title>
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
         <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Krona+One|Open+Sans" rel="stylesheet">
         <link rel="stylesheet" href="main.css">
-        <script>
-
-            var isScrolling;
-
-            function autoScroll() {
-	               window.clearTimeout( isScrolling );
-	               isScrolling = setTimeout(function() {
-                       console.log( 'Scrolling has stopped.' );
-                       if(window.scrollY >= window.innerHeight/2){
-                           scrollToMap();
-                       } else {
-                           scrollToAbout();
-                       }
-                   }, 66);
-            }
-
-            function scrollToMap(){
-                document.getElementById("map").scrollIntoView({behavior: "smooth"});
-                // var pos = window.scrollY;
-                // var id = setInterval(frame, 5);
-                // function frame() {
-                //     if (pos == window.innerHeight) {
-                //         //window.scrollTo(window.innerHeight);
-                //         clearInterval(id);
-                //     } else {
-                //         pos += 6;
-                //         window.scrollTo(0,pos);
-                //     }
-                // }
-            }
-
-            function scrollToAbout(){
-                document.getElementById("about").scrollIntoView({behavior: "smooth"});
-            }
-
-        </script>
     </head>
-    <body onScroll="autoScroll()">
+    <body onload="window.scrollTo(0,0)">
 
         <div id="about">
+            <svg style="position:absolute;" height="100vh" width="100vw">
+                <line x1="300" y1="150" x2="500" y2="50" style="stroke:rgb(255,0,0);stroke-width:5;" stroke-dasharray="10,10" d="M5 40 l215 0"/>
+                <line x1="490" y1="40" x2="510" y2="60" style="stroke:rgb(255,0,0);stroke-width:5;"/>
+                <line x1="490" y1="60" x2="510" y2="40" style="stroke:rgb(255,0,0);stroke-width:5;"/>
+                Sorry, your browser does not support inline SVG.
+            </svg>
             <div id="title">Wander</div>
             <ul>
                 <li>
@@ -62,7 +33,10 @@
             </ul>
         </div>
 
+        <a id="toMap" href="#map">Map</a>
         <div id="map"></div>
+
+        <a id="back" href="#about">Back</a>
         <script type="text/javascript" src="map_script.js"></script>
         <script async defer
                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4jwEziUSpN1BqQI8HKgxN57Tt4HugL5I&callback=initMap">
