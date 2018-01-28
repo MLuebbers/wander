@@ -2,7 +2,7 @@ const Hapi = require('hapi');
 const mysql = require('mysql');
 
 const server = new  Hapi.Server();
-server.connection({port: 3001, host: '0.0.0.0'}); // needed for digital ocean.
+server.connection({port: 3002, host: '0.0.0.0'}); // needed for digital ocean.
 
 function addDemoPoints(){
     var test = [];

@@ -130,7 +130,7 @@ function drawPoints(){
  alert(getData[name]);
     var request = $.ajax({
         type: "GET",
-        url: "http://165.227.67.10:3001/get",
+        url: "http://165.227.67.10:3002/get",
         data: {longitude: data.lng, latitude: data.lat}
     })
 
