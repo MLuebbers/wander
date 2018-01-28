@@ -142,10 +142,10 @@ function drawPoints(){
 
         alert("Data Saved: " + msg)
         for(x = 0; x < msg.length; x++){
-            var lat2 = 41.8267760;
-            var lon2 = -71.40441821;
-            // parseFloat(msg[x].longitude);
-            //parseFloat(msg[41.8267760, -71.4044182].latitude);
+            // var lat2 = 41.8267760;
+            // var lon2 = -71.40441821;
+            var lat2 = parseFloat(msg[x].longitude);
+            var lon2 = parseFloat(msg[41.8267760, -71.4044182].latitude);
             var words = msg[x].words;
             // console.log(lat);
             // console.log(lon);
