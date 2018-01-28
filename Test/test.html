@@ -6,7 +6,7 @@
         <script>
         	$(function(arr) {
 				$.ajax({
-					method: "GET",
+					type: "GET",
 					url: "165.227.67.10:3000",
 					data: {name: "Jenna"}
 				}).done(function(msg) {
@@ -14,7 +14,7 @@
 					console.log("yay")
 				})
 			});
-			
+
 			// $(function(arr) {
 			// 	var request = $.ajax({
 			// 		type: "POST",
