@@ -2,7 +2,7 @@ const Hapi = require('hapi');
 const mysql = require('mysql');
 
 const server = new  Hapi.Server();
-server.connection({port: 3000, host: '0.0.0.0'}); // needed for digital ocean.
+server.connection({port: 3001, host: '0.0.0.0'}); // needed for digital ocean.
 
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -171,15 +171,15 @@ server.route({
         var sql = "INSERT INTO points (longitude, latitude, words, free) VALUES (@lon, @lat, @words, @free)";
         connection.query(sql, function (err, result) {
         if (err) {
-            throw err; 
-        } 
+            throw err;
+        }
             console.log("1 record inserted");
         });
 
         connection.query("SELECT * FROM points", function (err, result, fields) {
             if (err){
-              throw err;  
-            } 
+              throw err;
+            }
             console.log(result);
         });
     }
