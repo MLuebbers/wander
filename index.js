@@ -39,6 +39,14 @@ server.register(require('inert'), (err) => {
 
     server.route({
         method: 'GET',
+        path: '/jquery-3.3.1.min.js',
+        handler: function (request, reply) {
+            reply.file('./Test/jquery-3.3.1.min.js');
+        }
+    });
+
+    server.route({
+        method: 'GET',
         path: '/main.css',
         handler: function (request, reply) {
             reply.file('./public/main.css');
@@ -61,6 +69,31 @@ server.register(require('inert'), (err) => {
         }
     });
 
+
+});
+
+server.route({
+        method: 'GET',
+        path: '/test',
+        handler: function (request, reply) {
+            reply.file('./Test/test.html');
+        }
+    });
+
+
+server.route({
+        method: 'GET',
+        path: '/index',
+        handler: function (request, reply) {
+            reply.file('./public/.html');
+        }
+    });
+
+server.start((err) => {
+    if(err){
+        throw err;
+    }
+    console.log(`Server running at: ${server.info.uri}`); // that's a back tick
 
 });
 
@@ -88,28 +121,12 @@ server.route({
 
 server.route({
     method: 'POST',
-    path: '/{longitude}/{latitude}/{words}/{free}',
+    path: '/',
     handler: function(request, reply){
         reply('Hello2, '
-        + encodeURIComponent(request.params.longitude)
-        + "," + encodeURIComponent(request.params.latitude)
-        + "," + encodeURIComponent(request.params.words)
-        + "," + encodeURIComponent(request.params.free) + '!');
+        + request.query.longitude
+        + "," + request.query.latitude
+        + "," + request.query.words
+        + "," + request.query.free + '!');
     }
-});
-
-server.route({
-        method: 'GET',
-        path: '/index',
-        handler: function (request, reply) {
-            reply.file('./public/.html');
-        }
-    });
-
-server.start((err) => {
-    if(err){
-        throw err;
-    }
-    console.log(`Server running at: ${server.info.uri}`); // that's a back tick
-
 });
