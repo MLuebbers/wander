@@ -161,7 +161,7 @@ server.route({
         var lat = (request.query.latitude);
         var words = "test string"; //(request.query.words).string();
         var free = (request.query.free == 'true');
-
+        var test = [];
         test.push([lon, lat, words, free]);
 
         reply('The Values are || '
