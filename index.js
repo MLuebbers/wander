@@ -10,13 +10,6 @@ const connection = mysql.createConnection({
     password: 'password'
 });
 
-connection.query("CREATE DATABASE wander", function (err, result) {
-        if (err) {
-            throw err;
-        }
-        console.log("Database created");
-    });
-
 connection.connect(function(err) {
     if(err){
         console.error('error connecting: ' + err.stack);
