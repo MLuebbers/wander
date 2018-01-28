@@ -39,6 +39,14 @@ server.register(require('inert'), (err) => {
 
     server.route({
         method: 'GET',
+        path: '/jquery-3.3.1.min.js',
+        handler: function (request, reply) {
+            reply.file('./Test/jquery-3.3.1.min.js');
+        }
+    });
+
+    server.route({
+        method: 'GET',
         path: '/main.css',
         handler: function (request, reply) {
             reply.file('./public/main.css');
