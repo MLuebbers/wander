@@ -80,6 +80,23 @@ server.route({
         }
     });
 
+
+server.route({
+        method: 'GET',
+        path: '/index',
+        handler: function (request, reply) {
+            reply.file('./public/.html');
+        }
+    });
+
+server.start((err) => {
+    if(err){
+        throw err;
+    }
+    console.log(`Server running at: ${server.info.uri}`); // that's a back tick
+
+});
+
 server.route({
     method: 'GET',
     path: '/',
@@ -112,21 +129,4 @@ server.route({
         + "," + request.query.words
         + "," + request.query.free + '!');
     }
-});
-
-
-server.route({
-        method: 'GET',
-        path: '/index',
-        handler: function (request, reply) {
-            reply.file('./public/.html');
-        }
-    });
-
-server.start((err) => {
-    if(err){
-        throw err;
-    }
-    console.log(`Server running at: ${server.info.uri}`); // that's a back tick
-
 });
