@@ -206,9 +206,10 @@ server.route({
     method: 'GET',
     path: '/get',
     handler: function(request, reply){
-        var lon = (request.query.longitude);
-        var lat = (request.query.latitude);
-        connection.query("SELECT * FROM points WHERE (latitude between (lat - 0.005) AND (lat + 0.005)) and WHERE (longitude between (lon - 0.005) AND (lon + 0.005))", function (err, result, fields) {
+        // var lon = (request.query.longitude);
+        // var lat = (request.query.latitude);
+         // WHERE (latitude between (lat - 0.005) AND (lat + 0.005)) and WHERE (longitude between (lon - 0.005) AND (lon + 0.005))"
+        connection.query("SELECT * FROM points"), function (err, result, fields) {
             if (err){
               throw err;
             }

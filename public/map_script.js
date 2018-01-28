@@ -77,7 +77,7 @@ function CenterControl(controlDiv, map) {
             $('.popup').css( "left", "20px" );
             window.infobox = true;
         }else{
-            $('.popup').css( "left", "-380px" ); 
+            $('.popup').css( "left", "-380px" );
             window.infobox = false;
         }
 
@@ -91,7 +91,7 @@ function CenterControl(controlDiv, map) {
             map: map,
             icon: blueMarker,
         });
-        
+
         marker.addListener('click', function() {
             for (i =0; i < window.sharedSpace.length; i++) {
                 if(window.sharedSpace[i].lat==marker.getPosition().lat()) {
@@ -101,7 +101,7 @@ function CenterControl(controlDiv, map) {
                     for (j=0; j< data.length; j++) {
                         weirdWords += " " + data[j];
                     }
-                    
+
                     infowindow = new google.maps.InfoWindow({
                         content: weirdWords
                     });
@@ -114,7 +114,34 @@ function CenterControl(controlDiv, map) {
 }
 
 
+function drawPoints(){
 
+    var getData;
+    $.ajax({
+        type: 'GET',
+        url: url,
+        dataType: 'json',
+        async: false,
+        success: function (response) {
+            getData[name] = response;
+
+        }
+    });
+ alert(getData[name]);
+    var request = $.ajax({
+        type: "GET",
+        url: "http://165.227.67.10:3001/get",
+        data: {longitude: data.lng, latitude: data.lat}
+    })
+
+    request.done(function(msg) {
+        alert("Data Saved: " + msg)
+    })
+
+    request.fail(function(jqXHR, textStatus) {
+        alert("Request failed: " + textStatus)
+    })
+}
 
 
 function initMap() {
@@ -124,7 +151,7 @@ function initMap() {
         zoom: 17,
         center: {lat: 41.8261471, lng: -71.4028689},
         disableDefaultUI: true,
-        gestureHandling: 'cooperative', 
+        gestureHandling: 'cooperative',
         styles: [
             {
                 "elementType": "geometry",
@@ -455,5 +482,3 @@ function initMap() {
         })
     })
 }
-
-
