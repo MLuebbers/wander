@@ -9,6 +9,12 @@ function addDemoPoints(){
     test.push([41.8267760, -71.4044182, "Clock big old", true]);
     test.push([41.8264849, -71.4014262, "I is blue. I is bear. I is light", true]);
     test.push([41.8273806, -71.4017960, "Silver man, woman, circle", true]);
+
+    test.push([41.8274096, -71.4039727, "Small road building", true]);
+    test.push([41.8263838, -71.4035982, "Old rocks", true]);
+    test.push([41.8269332, -71.4030014, "Look down and up up", true]);
+    test.push([41.8272539, -71.4028280, "Light, rocks, high", true]);
+
     connection.query('INSERT INTO points (longitude, latitude, words, free) VALUES ?', [test], function (err, result) {
     if (err) {
         throw err;
