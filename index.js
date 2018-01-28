@@ -4,6 +4,13 @@ const Hapi = require('hapi');
 const server = new  Hapi.Server();
 server.connection({port: 3000, host: '0.0.0.0'}); // needed for digital ocean.
 
+// var mysql = require('mysql');
+// var connection = mysql.createConnection({
+//     host: '165.227.67.10:3000'
+//     user: 'root'
+//     password: 'password'
+// })
+
 server.register(require('inert'), (err) => {
 
     if (err) {
@@ -40,22 +47,13 @@ server.route({
 });
 
 
-// server.route({
-//     method: 'GET',
-//     path: '',
-//     handler: function(request, reply){
-//         // .header("Access-Control-Allow-Origin", "*")
-//         reply('Hello, ' + "jenna" + '!');
-//     }
-// });
-
 server.route({
     method: 'POST',
-    path: '/{longitude}/{latitude}/{words}/{free}',
+    path: '/',
     handler: function(request, reply){
-        reply('Hello2, ' + encodeURIComponent(request.params.longitude) + "," + encodeURIComponent(request.params.latitude) + "," + encodeURIComponent(request.params.words) + "," + encodeURIComponent(request.params.free) + '!');
-    }
-});
+        reply('Longitude: ' + request.query.longitude + "," + 'Latitude: ' + request.query.latitude + "," + 'Words: ' + request.query.words + "," 'Free: ' + request.query.free);
+
+    });
 
 server.route({
         method: 'GET',
