@@ -25,13 +25,13 @@ connection.connect(function(err) {
         console.log("Database created");
     });
 
-    // var sql = "CREATE TABLE points (longitude FLOAT, latitude FLOAT, words VARCHAR(140), free BOOLEAN)";
-    // con.query(sql, function (err, result) {
-    //     if (err) {
-    //         throw err;
-    //     }
-    //     console.log("Table created");
-    // });
+    var sql = "CREATE TABLE points (longitude FLOAT, latitude FLOAT, words VARCHAR(140), free BOOLEAN)";
+    con.query(sql, function (err, result) {
+        if (err) {
+            throw err;
+        }
+        console.log("Table created");
+    });
 });
 server.register(require('inert'), (err) => {
 
