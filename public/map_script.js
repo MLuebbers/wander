@@ -111,6 +111,8 @@ function CenterControl(controlDiv, map) {
         })
     });
 
+    drawPoints();
+
 }
 
 
@@ -128,6 +130,7 @@ function drawPoints(){
  //        }
  //    });
  // alert(getData[name]);
+    console.log("drawwwing points");
     var request = $.ajax({
         type: "GET",
         url: "http://165.227.67.10:3002/get"
