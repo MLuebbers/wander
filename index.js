@@ -88,13 +88,13 @@ server.route({
 
 server.route({
     method: 'POST',
-    path: '/{longitude}/{latitude}/{words}/{free}',
+    path: '/',
     handler: function(request, reply){
         reply('Hello2, '
-        + encodeURIComponent(request.params.longitude)
-        + "," + encodeURIComponent(request.params.latitude)
-        + "," + encodeURIComponent(request.params.words)
-        + "," + encodeURIComponent(request.params.free) + '!');
+        + request.query.longitude
+        + "," + request.query.latitude
+        + "," + request.query.words
+        + "," + request.query.free + '!');
     }
 });
 
