@@ -14,13 +14,14 @@ server.register(require('inert'), (err) => {
         method: 'GET',
         path: '/home',
         handler: function (request, reply) {
-            reply.file('./public/index.html');
+            reply('Hello, world!');
+            // reply.file('./public/index.html');
         }
     });
 
     server.route({
         method: 'GET',
-        path: '/jquery-3.3.1.min.js',
+        path: '/jquery-3.2.1.min.js',
         handler: function (request, reply) {
             reply.file('./public/JS/libs/jquery-3.2.1.min.js');
         }
