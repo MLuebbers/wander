@@ -155,12 +155,12 @@ server.route({
         + "," + request.query.words
         + "," + request.query.free + '!');
 
-        // var sql = "INSERT INTO points (longitude, latitude, words, free) VALUES (request.query.longitude, request.query.latitude, request.query.words, request.query.free)";
-        // con.query(sql, function (err, result) {
-        // if (err) {
-        //     throw err; 
-        // } 
-        //     console.log("1 record inserted");
-        // });
+        var sql = "INSERT INTO points (longitude, latitude, words, free) VALUES (request.query.longitude, request.query.latitude, request.query.words, request.query.free)";
+        con.query(sql, function (err, result) {
+        if (err) {
+            throw err; 
+        } 
+            console.log("1 record inserted");
+        });
     }
 });
