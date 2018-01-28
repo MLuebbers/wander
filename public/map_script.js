@@ -141,10 +141,10 @@ function drawPoints(){
     request.done(function(msg) {
 
         alert("Data Saved: " + msg)
-        for(i = 0; i < msg.length; i++){
-            var lat = msg[i].latitude;
-            var lon = msg[i].longitude;
-            var words = msg[i].words;
+        for(x = 0; x < msg.length; x++){
+            var lat = msg[x].latitude;
+            var lon = msg[x].longitude;
+            var words = msg[x].words;
             var addMyLoc = {lat: lat, lng: lon};
             var marker = new google.maps.Marker({
                 position: addMyLoc,
