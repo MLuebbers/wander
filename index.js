@@ -156,7 +156,7 @@ server.route({
         + "," + request.query.free + '!');
 
         var sql = "INSERT INTO points (longitude, latitude, words, free) VALUES (request.query.longitude, request.query.latitude, request.query.words, request.query.free)";
-        con.query(sql, function (err, result) {
+        connection.query(sql, function (err, result) {
         if (err) {
             throw err; 
         } 
