@@ -7,7 +7,7 @@ server.connection({port: 3000, host: '0.0.0.0'}); // needed for digital ocean.
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'password'
+    password: 'password',
     database: 'wander'
 });
 
