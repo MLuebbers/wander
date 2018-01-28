@@ -33,22 +33,11 @@ connection.connect(function(err) {
         console.log("Table created");
     });
 });
-
 server.register(require('inert'), (err) => {
 
     if (err) {
         throw err;
     }
-
-    // server.route({
-    //     method: 'GET',
-    //     path: '/{param*}',
-    //     handler: {
-    //         directory: {
-    //             path: './public'
-    //         }
-    //     }
-    // });
 
     server.route({
         method: 'GET',
@@ -63,17 +52,25 @@ server.register(require('inert'), (err) => {
         method: 'GET',
         path: '/jquery-3.2.1.min.js',
         handler: function (request, reply) {
-            reply.file('./public/JS/libs/jquery-3.2.1.min.js');
+            reply.file('./public/jquery-3.2.1.min.js');
         }
     });
 
     server.route({
         method: 'GET',
-        path: '/jquery-3.3.1.min.js',
+        path: '/popup_script.js',
         handler: function (request, reply) {
-            reply.file('./Test/jquery-3.3.1.min.js');
+            reply.file('./public/popup_script.js');
         }
     });
+
+    // server.route({
+    //     method: 'GET',
+    //     path: '/jquery-3.3.1.min.js',
+    //     handler: function (request, reply) {
+    //         reply.file('./Test/jquery-3.3.1.min.js');
+    //     }
+    // });
 
     server.route({
         method: 'GET',
@@ -98,8 +95,6 @@ server.register(require('inert'), (err) => {
             reply.file('./public/script.js');
         }
     });
-
-
 });
 
 server.route({
@@ -111,13 +106,13 @@ server.route({
     });
 
 
-server.route({
-        method: 'GET',
-        path: '/index',
-        handler: function (request, reply) {
-            reply.file('./public/.html');
-        }
-    });
+// server.route({
+//         method: 'GET',
+//         path: '/index',
+//         handler: function (request, reply) {
+//             reply.file('./public/.html');
+//         }
+//     });
 
 server.start((err) => {
     if(err){
