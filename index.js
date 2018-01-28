@@ -209,7 +209,7 @@ server.route({
         // var lon = (request.query.longitude);
         // var lat = (request.query.latitude);
          // WHERE (latitude between (lat - 0.005) AND (lat + 0.005)) and WHERE (longitude between (lon - 0.005) AND (lon + 0.005))"
-        connection.query("SELECT * FROM points"), function (err, result, fields) {
+        connection.query("SELECT * FROM points", function (err, result, fields) {
             if (err){
               throw err;
             }
