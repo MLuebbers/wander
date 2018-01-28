@@ -34,17 +34,6 @@ var wanderPath;
 
 var infoWindow;
 
-var pos = {
-    lat: 41.8251471,
-    lng: -71.4028689
-};
-
-var selfMarker = new google.maps.Marker({
-        position: pos,
-        icon:image,
-        map: map,
-        //zIndex: 99999,
-    });
 
 var chicago = {lat: 41.85, lng: -87.65};
 
@@ -55,7 +44,18 @@ var chicago = {lat: 41.85, lng: -87.65};
        * @constructor
        */
 function CenterControl(controlDiv, map) {
+    var pos = {
+        lat: 41.8251471,
+        lng: -71.4028689
+    };
 
+    var selfMarker = new google.maps.Marker({
+            position: pos,
+            icon:image,
+            map: map,
+            //zIndex: 99999,
+        });
+        
     // Set CSS for the control border.
     var controlUI = document.createElement('div');
     controlUI.style.backgroundColor = '#ffac59';
