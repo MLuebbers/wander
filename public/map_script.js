@@ -115,27 +115,27 @@ function CenterControl(controlDiv, map) {
 
 
 function drawPoints(){
+    console.log("drawwwwing");
+ //    var getData;
+ //    $.ajax({
+ //        type: 'GET',
+ //        url: url,
+ //        dataType: 'json',
+ //        async: false,
+ //        success: function (response) {
+ //            getData[name] = response;
 
-    var getData;
-    $.ajax({
-        type: 'GET',
-        url: url,
-        dataType: 'json',
-        async: false,
-        success: function (response) {
-            getData[name] = response;
-
-        }
-    });
- alert(getData[name]);
+ //        }
+ //    });
+ // alert(getData[name]);
     var request = $.ajax({
         type: "GET",
-        url: "http://165.227.67.10:3002/get",
-        data: {longitude: data.lng, latitude: data.lat}
+        url: "http://165.227.67.10:3002/get";
     })
 
     request.done(function(msg) {
         alert("Data Saved: " + msg)
+        console.log("done");
     })
 
     request.fail(function(jqXHR, textStatus) {

@@ -213,7 +213,7 @@ server.route({
             if (err){
               throw err;
             }
-            // reply(result);
+            reply(result);
             console.log(result);
         });
     }
