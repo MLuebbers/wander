@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+* {
+    margin: 0px;
+}
+
+#about {
+    margin: 5px;
+    height: 100vh;
+    background: black;
+    color: gray;
+}
+
+#title {
+    font-size: 3rem;
+}
+#about ul{
+    list-style: none;
+}
+#about h1{
+    font-size: 2rem;
+}
+
+#about p{
+    text-align: center;
+    font-size: 1rem;
+}
+
+#map {
+    position: absolute;
+    top: 100vh;
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    background: black;
+}
