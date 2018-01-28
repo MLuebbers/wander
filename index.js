@@ -164,8 +164,8 @@ server.start((err) => {
 // });
 
 server.route({
-    method: 'POST',
-    path: '/',
+    method: 'GET',
+    path: '/add',
     handler: function(request, reply){
         var lon = (request.query.longitude);
         var lat = (request.query.latitude);
