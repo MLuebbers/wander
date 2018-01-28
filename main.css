@@ -4,22 +4,25 @@
 }
 
 #about {
-    text-align: center;
-    margin: auto;
+    margin: 5px;
     height: 100vh;
     background: black;
     color: gray;
-    font-size: 72px;
+}
+
+#title {
+    font-size: 3rem;
 }
 #about ul{
     list-style: none;
 }
 #about h1{
-    font-size: 32px;
+    font-size: 2rem;
 }
 
 #about p{
-    font-size: 24px;
+    text-align: center;
+    font-size: 1rem;
 }
 
 #map {
