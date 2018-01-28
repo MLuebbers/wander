@@ -155,7 +155,7 @@ server.route({
         var free = request.query.free
 
         reply('Hello2, '
-        + lon
+        + request.query.longitude
         + "," + lat
         + "," + words
         + "," + free + '!');
