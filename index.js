@@ -48,7 +48,7 @@ connection.connect(function(err) {
     console.log('connected as id ' + connection.threadId);
 
     var sql = "CREATE TABLE points (longitude FLOAT(40,25), latitude FLOAT(40,25), words VARCHAR(140), free BOOLEAN)";
-    con.query(sql, function (err, result) {
+    connection.query(sql, function (err, result) {
         if (err) throw err;
         console.log("Table created");
     });
