@@ -31,19 +31,23 @@ server.route({
     method: 'GET',
     path: '/',
     handler: function(request, reply){
-        reply('Hello, world!');
+        if(request.params.name) {
+            reply('Hello, ' + request.params.name + '!');
+        } else {
+            reply('Hello, world!');
+        }
     }
 });
 
 
-server.route({
-    method: 'GET',
-    path: '/jenna',
-    handler: function(request, reply){
-        // .header("Access-Control-Allow-Origin", "*")
-        reply('Hello, ' + "jenna" + '!');
-    }
-});
+// server.route({
+//     method: 'GET',
+//     path: '',
+//     handler: function(request, reply){
+//         // .header("Access-Control-Allow-Origin", "*")
+//         reply('Hello, ' + "jenna" + '!');
+//     }
+// });
 
 server.route({
     method: 'POST',
