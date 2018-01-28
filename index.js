@@ -14,8 +14,8 @@ server.register(require('inert'), (err) => {
         method: 'GET',
         path: '/home',
         handler: function (request, reply) {
-            reply('Hello, world!');
-            // reply.file('./public/index.html');
+            // reply('Hello, world!');
+            reply.file('./public/index.html');
         }
     });
 
