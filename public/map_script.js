@@ -391,7 +391,6 @@ function initMap() {
                 ]
             }
         ]
-        drawPoints();
     })
     var centerControlDiv = document.createElement('div');
     var centerControl = new CenterControl(centerControlDiv, map);
@@ -463,23 +462,24 @@ function initMap() {
         url: 'https://cdn4.iconfinder.com/data/icons/ios7-active-tab/512/map_marker-512.png', // image is 512 x 512
         scaledSize : new google.maps.Size(32, 32),
     };
-    google.maps.event.addListener(map, 'click', function(evt) {
-        // get existing path
-        var adddedMarkerPos = {lat:evt.latLng.lat(), lng:evt.latLng.lng()};
-        var marker = new google.maps.Marker({
-            position: adddedMarkerPos,
-            map: map,
-            icon: blueMarker,
-        });
-        marker.addListener('click', function() {
+    // google.maps.event.addListener(map, 'click', function(evt) {
+    //     // get existing path
+    //     var adddedMarkerPos = {lat:evt.latLng.lat(), lng:evt.latLng.lng()};
+    //     var marker = new google.maps.Marker({
+    //         position: adddedMarkerPos,
+    //         map: map,
+    //         icon: blueMarker,
+    //     });
+    //     marker.addListener('click', function() {
 
-            for (i =0; i < window.sharedSpace.length; i++) {
-                if(window.sharedSpace[i].lat==marker.getPosition().lat()) {
-                    data = window.sharedSpace[i];
-                }
-            }
-            console.log(data);
-            infowindow.open(map, marker);
-        })
-    })
+    //         for (i =0; i < window.sharedSpace.length; i++) {
+    //             if(window.sharedSpace[i].lat==marker.getPosition().lat()) {
+    //                 data = window.sharedSpace[i];
+    //             }
+    //         }
+    //         console.log(data);
+    //         infowindow.open(map, marker);
+    //     })
+    // })
+    drawPoints();
 }
