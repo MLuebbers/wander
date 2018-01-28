@@ -120,13 +120,13 @@ server.route({
 // });
 
 server.route({
-    method: 'POST',
+    method: 'GET',
     path: '/',
     handler: function(request, reply){
         reply('Hello2, '
         + request.query.longitude);
-        // + "," + request.query.latitude
-        // + "," + request.query.words
-        // + "," + request.query.free + '!');
+        + "," + request.query.latitude
+        + "," + request.query.words
+        + "," + request.query.free + '!');
     }
 });

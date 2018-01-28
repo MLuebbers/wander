@@ -23,9 +23,9 @@
 
 			$(function(arr) {
 				var request = $.ajax({
-					type: "POST",
+					type: "GET",
 					url: "http://165.227.67.10:3000",
-					data: {longitude: "100"}
+					data: {longitude: "100", latitude: "200", words: "mystery", free: "true"}
 				})
 
 				request.done(function(msg) {
